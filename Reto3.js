@@ -6,6 +6,14 @@ var rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
+
+
+const person = {
+    name: "",
+    surname: "",
+    age: ""
+};
+
 setTimeout(() => {
 
     setTimeout(() => {
@@ -33,28 +41,23 @@ setTimeout(() => {
     }, 10000);
 });
 
-const person = {
-    name: "",
-    surname: "",
-    age: ""
-};
 
 let one = JSON.stringify(person);
 
 console.log(person);
-// try {
-//     fs.unlinkSync('test.json')
-//     console.log("File removed successfully");
+try {
+    fs.unlinkSync('test.json')
+    console.log("File removed successfully");
 
-// } catch (err) {
-//     console.error('Something wrong happened removing the file');
-// }
+} catch (err) {
+    console.error('Something wrong happened removing the file');
+}
 
-// fs.writeFile("test.json", one, (err) => {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log("File written successfully");
-//         console.log(fs.readFileSync("test.json", "utf8"));
-//     }
-// });
+fs.writeFile("test.json", one, (err) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("File written successfully");
+        console.log(fs.readFileSync("test.json", "utf8"));
+    }
+});

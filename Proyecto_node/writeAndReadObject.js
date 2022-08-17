@@ -1,5 +1,5 @@
 
-function writeAndRead(path, obj) {
+export function writeAndRead(path, obj) {
 
     var fs = require('fs');
 
