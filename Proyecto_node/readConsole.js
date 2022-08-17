@@ -5,31 +5,33 @@ export function readConsolle() {
         input: process.stdin,
         output: process.stdout
     });
-    setTimeout(() => {
 
-        setTimeout(() => {
+    rl.question("What is your name? ", (name) => {
 
-            rl.question('What is your name? ', (name) => {
-                console.log(person.name);
-                person.name = name;
+        console.log(person.name = name);
+
+        rl.question("What is you username? ", (surname) => {
+
+            console.log(person.surname = surname);
+
+            rl.question("What is you age? ", (age) => {
+
+                console.log(person.age = age);
+
+                let dato = JSON.stringify(person);
+
+                fs.writeFile("test.JSON", dato, () => {
+
+                    fs.readFile("test.JSON", () => {
+
+                        console.log(JSON.parse(dato));
+                    })
+                })
+
+                rl.close();
             })
-
         });
 
-        setTimeout(() => {
-            rl.question('What is your surname? ', (surname) => {
-                console.log(person.surname);
-                person.surname = surname;
-            })
-        }, 5000);
-
-        setTimeout(() => {
-
-            rl.question('What is your age? ', (age) => {
-                console.log(age);
-                person.age = age;
-            })
-        }, 10000);
     });
 
     const person = {
@@ -37,7 +39,4 @@ export function readConsolle() {
         surname: "",
         age: ""
     };
-    setTimeout(() => {
-        console.log(person);
-    }, 20000);
 }

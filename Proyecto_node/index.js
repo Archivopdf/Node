@@ -1,6 +1,12 @@
 import { readConsolle } from "./readConsole";
 import { writeAndRead } from "./writeAndReadObject";
 
-readConsolle()
+try {
+    readConsolle();
 
-writeAndRead()
+    writeAndRead("test.json");
+
+} catch (err) {
+
+    console.log(err);
+}
