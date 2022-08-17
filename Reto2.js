@@ -7,24 +7,14 @@ let person = {
     age: 27
 };
 
-async function asyncAwait() {
 
-    try {
-
-        fs.writeFile('persona.json', JSON.stringify(person))
-            .then(() => {
-                return fs.readFile('person.json', 'utf8')
-            })
-            .then(data => {
-                console.log(JSON.parse(person));
-            })
-        // .catch(err => {
-        //     console.log(err);
-        // })
-
-    } catch (err) {
-        console.err('Something wrong happened removing the file');
-    }
-}
-
-asyncAwait()
+fs.writeFile('persona.json', JSON.stringify(person))
+    .then(() => {
+        return fs.readFile('persona.json', 'utf8')
+    })
+    .then(person => {
+        console.log(JSON.parse(person));
+    })
+    .catch(err => {
+        console.log(err);
+    })
