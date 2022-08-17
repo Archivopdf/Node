@@ -1,10 +1,18 @@
 var readline = require('readline');
 
-export function readConsolle() {
-    var rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+export function readConsolle(callback) {
+
+
+    const person = {
+        name: "",
+        surname: "",
+        age: ""
+    };
 
     rl.question("What is your name? ", (name) => {
 
@@ -20,13 +28,7 @@ export function readConsolle() {
 
                 let dato = JSON.stringify(person);
 
-                fs.writeFile("test.JSON", dato, () => {
-
-                    fs.readFile("test.JSON", () => {
-
-                        console.log(JSON.parse(dato));
-                    })
-                })
+                callback(person)
 
                 rl.close();
             })
@@ -34,9 +36,4 @@ export function readConsolle() {
 
     });
 
-    const person = {
-        name: "",
-        surname: "",
-        age: ""
-    };
 }
