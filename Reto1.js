@@ -4,10 +4,23 @@ const server = http.createServer(function (request, response) {
     console.log("Request received from client");
     console.log("Request Method: " + request.method);
     console.log("Request URL:" + request.url);
-    console.log("Response Status Code: " + response.statusCode);
-    response.writeHead(200, { "Content-Type": "text/plain" });
+    console.log("Header Request: " + request.headers.host);
 
-    response.write("Hello from server");
+    console.log(" - content-type  : ", request.headers["Content-Type"]);
+    console.log(" - content-lenght: ", request.headers["content-length"]);
+    console.log(" - user-agent    : ", request.headers["user-agent"]);
+
+    if (request.url == "/") {
+        respond = { ok: true, message: "Listo" };
+    } else if (request.url == "/bye") {
+        respond = { ok: true, message: "bye" };
+
+    }
+
+    console.log("Response Status code:" + response.statusCode);
+    response.writeHead(200, { "Content-Type": "application/json" });
+    response.write(JSON.stringify(respuesta));
+
     response.end()
 });
 
