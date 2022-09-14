@@ -5,7 +5,7 @@ var rl = readline.createInterface({
     output: process.stdout
 });
 
-export function readConsolle(callback) {
+export function readConsole(callback) {
 
 
     const person = {

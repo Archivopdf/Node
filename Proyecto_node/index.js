@@ -1,12 +1,10 @@
-import { readConsolle } from "./readConsole";
+import { readConsole } from "./readConsole";
 import { writeAndRead } from "./writeAndReadObject";
 
-try {
-    readConsolle();
-
-    writeAndRead("test.json");
-
-} catch (err) {
-
-    console.log(err);
-}
+rc.readConsole((test.json)) => {
+    wr.writeAndReadObject('./test.json', test.json, (test) => {
+        console.log('Name : ', test.name);
+        console.log('Surname : ', test.username);
+        console.log('Age : ', test.age);
+    });
+};
