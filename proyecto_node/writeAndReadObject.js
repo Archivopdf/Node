@@ -3,9 +3,9 @@ const fs = require('fs');
 function writeAndReadObject() {
 
     const promise = new Promise((resolve, reject) => {
-        fs.writeFile("persona.json", JSON.stringify(person))
+        fs.writeFile("person.json", JSON.stringify(person))
             .then(() => {
-                return fs.readFile("persona.json");
+                return fs.readFile("person.json");
             })
             .then((data) => {
                 resolve(JSON.parse(data));

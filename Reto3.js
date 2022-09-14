@@ -1,11 +1,13 @@
 const fs = require("fs/promises");
 const readline = require("readline")
 
-persona()
+let file = './person.json'
 
-async function persona() {
+person()
+
+async function person() {
     try {
-        let person = { name: "", surname: "", age: null };
+        let person = { name: "", surname: "", age: "" };
 
         person.name = await Info("what is your name?");
         person.surname = await Info("What is your surname?");
@@ -13,6 +15,11 @@ async function persona() {
 
         await fs.writeFile("persona.json", JSON.stringify(person));
         person = JSON.parse(await fs.readFile("persona.json"))
+
+        person = JSON.parse(await fs.readFile(file));
+        console.log("Name : ", person.name);
+        console.log("Surname : ", person.surname);
+        console.log("Age : ", person.age);
 
     } catch (err) {
         console.log(err);
